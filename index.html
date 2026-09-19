@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday OTHOY 💖</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: "Poppins", Arial, sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, #ff80ab55, transparent 30%),
+        radial-gradient(circle at 80% 80%, #9c4dff55, transparent 30%),
+        linear-gradient(135deg, #170018, #3b063f, #16002c);
+    color: white;
+}
+
+/* Floating hearts */
+.hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 20px;
+    animation: floatHeart linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main */
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Card */
+.card {
+    width: min(430px, 94vw);
+    min-height: 580px;
+    padding: 30px 24px;
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.09);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 2px solid rgba(255,105,180,0.75);
+
+    box-shadow:
+        0 0 15px #ff4da655,
+        0 0 35px #ff4da633,
+        inset 0 0 25px rgba(255,255,255,0.04);
+
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Neon corners */
+.card::before,
+.card::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border: 3px solid #ff62b0;
+}
+
+.card::before {
+    top: 12px;
+    left: 12px;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 20px 0 0 0;
+}
+
+.card::after {
+    bottom: 12px;
+    right: 12px;
+    border-left: none;
+    border-top: none;
+    border-radius: 0 0 20px 0;
+}
+
+/* Pages */
+.page {
+    display: none;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: pageIn 0.7s ease;
+}
+
+.page.active {
+    display: flex;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateX(30px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Text */
+.small-title {
+    color: #ff9bd0;
+    font-size: 16px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: clamp(35px, 10vw, 52px);
+    line-height: 1.05;
+    margin: 5px 0;
+    background: linear-gradient(90deg, #fff, #ff8bc7, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px #ff5fae88;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ffb4dc;
+}
+
+.message {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #ffe8f5;
+    margin: 20px 5px;
+}
+
+/* Cake */
+.cake {
+    font-size: 100px;
+    margin: 20px 0;
+    filter: drop-shadow(0 0 15px #ff6db8);
+    animation: cakeFloat 2s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Buttons */
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    padding: 14px 28px;
+    border-radius: 50px;
+
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+
+    background: linear-gradient(135deg, #ff3f9f, #9d42ff);
+
+    box-shadow:
+        0 0 15px #ff4da688,
+        0 0 30px #9d42ff55;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.06);
+    box-shadow:
+        0 0 20px #ff4da6,
+        0 0 45px #9d42ff;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Photo */
+.photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+
+    border: 4px solid #ff91cb;
+
+    box-shadow:
+        0 0 15px #ff4da6,
+        0 0 35px #ff4da655;
+
+    margin: 15px 0;
+}
+
+/* Stars */
+.star {
+    position: fixed;
+    color: white;
+    font-size: 8px;
+    animation: twinkle 2s infinite alternate;
+    z-index: 1;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+/* Final page */
+.final-name {
+    font-size: 55px;
+    font-weight: 800;
+    color: #ff8ac8;
+    text-shadow:
+        0 0 10px #ff4da6,
+        0 0 30px #ff4da6;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%,100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.06);
+    }
+}
+
+/* Mobile */
+@media(max-width: 400px) {
+    .card {
+        min-height: 550px;
+        padding: 25px 18px;
+    }
+
+    .cake {
+        font-size: 80px;
+    }
+
+    .final-name {
+        font-size: 45px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<div class="hearts" id="hearts"></div>
+
+<!-- Main -->
+<div class="container">
+
+<div class="card">
+
+    <!-- PAGE 1 -->
+    <section class="page active" id="page1">
+
+        <div class="small-title">
+            A LITTLE SURPRISE FOR YOU ✨
+        </div>
+
+        <h1>🎂 HAPPY</h1>
+        <h1>BIRTHDAY, OTHOY! 💖</h1>
+
+        <div class="cake">🎂</div>
+
+        <p class="message">
+            Today is a special day because someone
+            very special was born. 💕
+        </p>
+
+        <button onclick="nextPage()">
+            💌 Tap Here
+        </button>
+
+    </section>
+
+
+    <!-- PAGE 2 -->
+    <section class="page" id="page2">
+
+        <div class="small-title">
+            💖 FOR YOU
+        </div>
+
+        <h2>Dear OTHOY ✨</h2>
+
+        <p class="message" id="typingText"></p>
+
+        <button onclick="nextPage()">
+            ✨ Continue
+        </button>
+
+    </section>
+
+
+    <!-- PAGE 3 -->
+    <section class="page" id="page3">
+
+        <div class="small-title">
+            MAKE A WISH! ✨
+        </div>
+
+        <div class="cake">🎂</div>
+
+        <h2>Close your eyes... 💫</h2>
+
+        <p class="message">
+            Make a beautiful wish and blow out
+            the candles. 🕯️✨
+            <br><br>
+            May your smile always stay this beautiful. 💗
+        </p>
+
+        <button onclick="surprise()">
+            🎉 Birthday Surprise
+        </button>
+
+    </section>
+
+
+    <!-- PAGE 4 -->
+    <section class="page" id="page4">
+
+        <div class="small-title">
+            🎉 IT'S YOUR SPECIAL DAY 🎉
+        </div>
+
+        <div class="final-name">
+            OTHOY 💖
+        </div>
+
+        <div class="cake">
+            🎂
+        </div>
+
+        <p class="message">
+            Happy Birthday, OTHOY! 🥳💗
+            <br><br>
+
+            May your life be filled with
+            happiness, love, beautiful memories
+            and endless reasons to smile. ✨
+            <br><br>
+
+            Stay happy. Stay amazing. 💕
+        </p>
+
+        <button onclick="celebrate()">
+            🎊 Celebrate!
+        </button>
+
+    </section>
+
+</div>
+</div>
+
+
+<script>
+
+/* -------------------------
+   PAGE SYSTEM
+------------------------- */
+
+let currentPage = 1;
+
+function showPage(number) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + number)
+        .classList.add("active");
+
+    currentPage = number;
+
+    if (number === 2) {
+        startTyping();
+    }
+}
+
+function nextPage() {
+
+    if (currentPage < 4) {
+        showPage(currentPage + 1);
+    }
+}
+
+
+/* -------------------------
+   TYPING EFFECT
+------------------------- */
+
+const text =
+"On your special day, I just want to wish you lots of happiness, beautiful moments and endless smiles. May every new day bring something wonderful into your life. Happy Birthday, OTHOY! 💖✨";
+
+let typingStarted = false;
+
+function startTyping() {
+
+    if (typingStarted) return;
+
+    typingStarted = true;
+
+    const element =
+        document.getElementById("typingText");
+
+    let i = 0;
+
+    function type() {
+
+        if (i < text.length) {
+
+            element.innerHTML += text.charAt(i);
+
+            i++;
+
+            setTimeout(type, 35);
+        }
+    }
+
+    type();
+}
+
+
+/* -------------------------
+   FLOATING HEARTS
+------------------------- */
+
+const heartContainer =
+    document.getElementById("hearts");
+
+const heartSymbols =
+    ["💗","💖","💕","💓","💞","❤️","✨"];
+
+function createHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML =
+        heartSymbols[
+            Math.floor(
+                Math.random() * heartSymbols.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random() * 100 + "%";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 22) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 7) + "s";
+
+    heartContainer.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 12000);
+}
+
+setInterval(createHeart, 500);
+
+
+/* -------------------------
+   STARS
+------------------------- */
+
+function createStars() {
+
+    for (let i = 0; i < 45; i++) {
+
+        const star =
+            document.createElement("div");
+
+        star.className = "star";
+
+        star.innerHTML = "✦";
+
+        star.style.left =
+            Math.random() * 100 + "%";
+
+        star.style.top =
+            Math.random() * 100 + "%";
+
+        star.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        document.body.appendChild(star);
+    }
+}
+
+createStars();
+
+
+/* -------------------------
+   CONFETTI
+------------------------- */
+
+function createConfetti() {
+
+    const emojis =
+        ["🎉","🎊","💖","💕","✨","🌸","⭐"];
+
+    for (let i = 0; i < 80; i++) {
+
+        const confetti =
+            document.createElement("div");
+
+        confetti.innerHTML =
+            emojis[
+                Math.floor(
+                    Math.random() * emojis.length
+                )
+            ];
+
+        confetti.style.position = "fixed";
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+        confetti.style.top =
+            "-30px";
+
+        confetti.style.fontSize =
+            (15 + Math.random() * 20) + "px";
+
+        confetti.style.zIndex = "9999";
+
+        confetti.style.transition =
+            "transform 3s linear, opacity 3s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+
+            confetti.style.transform =
+                `translateY(${110 + Math.random() * 30}vh)
+                 rotate(${Math.random() * 720}deg)`;
+
+            confetti.style.opacity = "0";
+
+        }, 50);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 3500);
+    }
+}
+
+
+/* -------------------------
+   SURPRISE
+------------------------- */
+
+function surprise() {
+
+    createConfetti();
+
+    setTimeout(() => {
+        showPage(4);
+    }, 700);
+}
+
+
+/* -------------------------
+   CELEBRATE
+------------------------- */
+
+function celebrate() {
+
+    createConfetti();
+
+    for (let i = 0; i < 3; i++) {
+
+        setTimeout(() => {
+            createConfetti();
+        }, i * 1000);
+
+    }
+}
+
+
+/* -------------------------
+   OPTIONAL MUSIC
+-------------------------
+
+To add background music, put an MP3
+named "birthday.mp3" in the same folder.
+
+Then uncomment this:
+
+const music = new Audio("birthday.mp3");
+music.loop = true;
+
+document.addEventListener("click", () => {
+    music.play();
+}, { once: true });
+
+------------------------- */
+
+</script>
+
+</body>
+          </html>
