@@ -3,293 +3,543 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Noman 💖</title>
+
+<title>Happy Birthday Othoy💖</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    min-height: 100vh;
-    overflow: hidden;
-    font-family: "Poppins", Arial, sans-serif;
-    background:
-        radial-gradient(circle at 20% 20%, #ff80ab55, transparent 30%),
-        radial-gradient(circle at 80% 80%, #9c4dff55, transparent 30%),
-        linear-gradient(135deg, #170018, #3b063f, #16002c);
-    color: white;
+body{
+    min-height:100vh;
+    overflow:hidden;
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    background:linear-gradient(135deg,#ffd6e7,#e5d4ff,#c9f3ff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-/* Floating hearts */
-.hearts {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 0;
+/* Floating Hearts */
+.bg-heart{
+    position:fixed;
+    bottom:-50px;
+    font-size:25px;
+    pointer-events:none;
+    animation:floatUp 7s linear infinite;
+    opacity:.7;
 }
 
-.heart {
-    position: absolute;
-    bottom: -50px;
-    font-size: 20px;
-    animation: floatHeart linear infinite;
-    opacity: 0.7;
-}
+.h1{left:5%;animation-delay:0s;}
+.h2{left:20%;animation-delay:2s;}
+.h3{left:40%;animation-delay:4s;}
+.h4{left:65%;animation-delay:1s;}
+.h5{left:85%;animation-delay:3s;}
 
-@keyframes floatHeart {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
     }
-    15% {
-        opacity: 0.8;
+    15%{
+        opacity:1;
     }
-    100% {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
     }
 }
 
-/* Main */
-.container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    position: relative;
-    z-index: 2;
-}
+/* Main Card */
+.card{
+    width:92%;
+    max-width:430px;
+    height:650px;
+    position:relative;
+    overflow:hidden;
 
-/* Card */
-.card {
-    width: min(430px, 94vw);
-    min-height: 580px;
-    padding: 30px 24px;
-    border-radius: 30px;
+    background:rgba(255,255,255,.38);
+    backdrop-filter:blur(15px);
 
-    background: rgba(255,255,255,0.09);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    border:1px solid rgba(255,255,255,.7);
+    border-radius:32px;
 
-    border: 2px solid rgba(255,105,180,0.75);
+    box-shadow:0 20px 50px rgba(80,40,100,.2);
 
-    box-shadow:
-        0 0 15px #ff4da655,
-        0 0 35px #ff4da633,
-        inset 0 0 25px rgba(255,255,255,0.04);
-
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Neon corners */
-.card::before,
-.card::after {
-    content: "";
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    border: 3px solid #ff62b0;
-}
-
-.card::before {
-    top: 12px;
-    left: 12px;
-    border-right: none;
-    border-bottom: none;
-    border-radius: 20px 0 0 0;
-}
-
-.card::after {
-    bottom: 12px;
-    right: 12px;
-    border-left: none;
-    border-top: none;
-    border-radius: 0 0 20px 0;
+    text-align:center;
 }
 
 /* Pages */
-.page {
-    display: none;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    animation: pageIn 0.7s ease;
+.page{
+    position:absolute;
+    inset:0;
+
+    padding:30px 25px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    transition:
+        transform .6s ease,
+        opacity .6s ease;
 }
 
-.page.active {
-    display: flex;
+.page.hidden{
+    opacity:0;
+    pointer-events:none;
+    transform:translateX(100%);
 }
 
-@keyframes pageIn {
-    from {
-        opacity: 0;
-        transform: translateX(30px) scale(0.96);
+.page.previous{
+    transform:translateX(-100%);
+}
+
+/* First Page */
+.title{
+    position:absolute;
+    top:40px;
+}
+
+.title h1{
+    color:#ff3f81;
+    font-size:38px;
+    text-shadow:0 4px 10px rgba(255,60,130,.2);
+}
+
+.title p{
+    color:#663399;
+    margin-top:8px;
+    font-size:16px;
+}
+
+/* Cat */
+.cat{
+    position:relative;
+    width:190px;
+    height:210px;
+    margin-top:65px;
+
+    animation:catBounce 2s ease-in-out infinite;
+}
+
+@keyframes catBounce{
+    0%,100%{
+        transform:translateY(0);
     }
-    to {
-        opacity: 1;
-        transform: translateX(0) scale(1);
+    50%{
+        transform:translateY(-12px);
     }
 }
 
-/* Text */
-.small-title {
-    color: #ff9bd0;
-    font-size: 16px;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
+/* Cat Ears */
+.ear{
+    position:absolute;
+    top:0;
+
+    width:70px;
+    height:70px;
+
+    background:#fff;
+    border-radius:15px 55px 10px 55px;
 }
 
-h1 {
-    font-size: clamp(35px, 10vw, 52px);
-    line-height: 1.05;
-    margin: 5px 0;
-    background: linear-gradient(90deg, #fff, #ff8bc7, #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px #ff5fae88;
+.ear.left{
+    left:12px;
+    transform:rotate(-25deg);
 }
 
-h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #ffb4dc;
+.ear.right{
+    right:12px;
+    transform:rotate(115deg);
 }
 
-.message {
-    font-size: 15px;
-    line-height: 1.8;
-    color: #ffe8f5;
-    margin: 20px 5px;
+.inner-ear{
+    width:38px;
+    height:38px;
+
+    background:#ff9fbd;
+    border-radius:15px 55px 10px 55px;
+
+    position:absolute;
+    top:13px;
+    left:15px;
 }
 
-/* Cake */
-.cake {
-    font-size: 100px;
-    margin: 20px 0;
-    filter: drop-shadow(0 0 15px #ff6db8);
-    animation: cakeFloat 2s ease-in-out infinite;
+/* Cat Head */
+.head{
+    position:absolute;
+
+    width:155px;
+    height:125px;
+
+    left:18px;
+    top:35px;
+
+    background:#fff;
+    border-radius:50%;
+
+    box-shadow:0 7px 18px rgba(0,0,0,.12);
 }
 
-@keyframes cakeFloat {
-    0%,100% {
-        transform: translateY(0);
+/* Eyes */
+.eye{
+    position:absolute;
+
+    width:15px;
+    height:21px;
+
+    top:42px;
+
+    background:#333;
+    border-radius:50%;
+}
+
+.eye.left{
+    left:42px;
+}
+
+.eye.right{
+    right:42px;
+}
+
+.eye::after{
+    content:"";
+
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    top:3px;
+    left:3px;
+
+    background:white;
+    border-radius:50%;
+}
+
+/* Nose */
+.nose{
+    position:absolute;
+
+    top:66px;
+    left:70px;
+
+    width:14px;
+    height:10px;
+
+    background:#ff719c;
+    border-radius:50%;
+}
+
+/* Mouth */
+.mouth{
+    position:absolute;
+
+    top:75px;
+    left:65px;
+
+    width:25px;
+    height:17px;
+
+    border-bottom:3px solid #555;
+    border-radius:50%;
+}
+
+/* Whiskers */
+.whisker{
+    position:absolute;
+
+    width:45px;
+    height:2px;
+
+    background:#777;
+}
+
+.w1{
+    left:-27px;
+    top:72px;
+    transform:rotate(8deg);
+}
+
+.w2{
+    left:-27px;
+    top:82px;
+    transform:rotate(-8deg);
+}
+
+.w3{
+    right:-27px;
+    top:72px;
+    transform:rotate(-8deg);
+}
+
+.w4{
+    right:-27px;
+    top:82px;
+    transform:rotate(8deg);
+}
+
+/* Rose Bucket */
+.bucket{
+    position:absolute;
+
+    width:100px;
+    height:65px;
+
+    left:45px;
+    bottom:0;
+
+    background:#ff91b0;
+
+    border-radius:8px 8px 25px 25px;
+
+    box-shadow:0 6px 12px rgba(0,0,0,.15);
+
+    z-index:5;
+}
+
+.bucket::before{
+    content:"";
+
+    position:absolute;
+
+    width:80px;
+    height:25px;
+
+    left:7px;
+    top:-23px;
+
+    border:5px solid #ff6e99;
+    border-bottom:0;
+
+    border-radius:50px 50px 0 0;
+}
+
+/* Roses */
+.rose{
+    position:absolute;
+
+    font-size:38px;
+
+    animation:roseMove 2s ease-in-out infinite;
+}
+
+.r1{
+    left:45px;
+    bottom:38px;
+}
+
+.r2{
+    left:70px;
+    bottom:42px;
+    font-size:32px;
+    animation-delay:.3s;
+}
+
+.r3{
+    left:25px;
+    bottom:40px;
+    font-size:31px;
+    animation-delay:.6s;
+}
+
+@keyframes roseMove{
+    0%,100%{
+        transform:rotate(-5deg);
     }
-    50% {
-        transform: translateY(-10px);
+
+    50%{
+        transform:rotate(6deg) translateY(-4px);
     }
 }
 
 /* Buttons */
-button {
-    border: none;
-    outline: none;
-    cursor: pointer;
+.btn{
+    border:0;
+    outline:none;
 
-    padding: 14px 28px;
-    border-radius: 50px;
+    padding:14px 30px;
 
-    color: white;
-    font-size: 15px;
-    font-weight: 600;
+    border-radius:30px;
 
-    background: linear-gradient(135deg, #ff3f9f, #9d42ff);
+    background:linear-gradient(135deg,#ff4f91,#ff7eb3);
 
-    box-shadow:
-        0 0 15px #ff4da688,
-        0 0 30px #9d42ff55;
+    color:white;
 
-    transition: 0.3s;
+    font-size:17px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 20px rgba(255,70,130,.3);
+
+    transition:.25s;
+
+    margin-top:20px;
 }
 
-button:hover {
-    transform: scale(1.06);
-    box-shadow:
-        0 0 20px #ff4da6,
-        0 0 45px #9d42ff;
+.btn:hover{
+    transform:scale(1.06);
 }
 
-button:active {
-    transform: scale(0.95);
+.btn:active{
+    transform:scale(.95);
 }
 
-/* Photo */
-.photo {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-
-    border: 4px solid #ff91cb;
-
-    box-shadow:
-        0 0 15px #ff4da6,
-        0 0 35px #ff4da655;
-
-    margin: 15px 0;
+/* Notes */
+.note{
+    padding:35px 25px;
 }
 
-/* Stars */
-.star {
-    position: fixed;
-    color: white;
-    font-size: 8px;
-    animation: twinkle 2s infinite alternate;
-    z-index: 1;
+.note-icon{
+    font-size:65px;
+    margin-bottom:25px;
+
+    animation:pop .8s ease;
 }
 
-@keyframes twinkle {
-    from {
-        opacity: 0.2;
-        transform: scale(0.7);
+.note h2{
+    color:#ff3f81;
+    font-size:30px;
+    margin-bottom:18px;
+}
+
+.note p{
+    color:#543b65;
+    font-size:18px;
+    line-height:1.7;
+}
+
+@keyframes pop{
+    0%{
+        transform:scale(0);
+        opacity:0;
     }
-    to {
-        opacity: 1;
-        transform: scale(1.4);
+
+    70%{
+        transform:scale(1.15);
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
     }
 }
 
-/* Final page */
-.final-name {
-    font-size: 55px;
-    font-weight: 800;
-    color: #ff8ac8;
-    text-shadow:
-        0 0 10px #ff4da6,
-        0 0 30px #ff4da6;
-    animation: pulse 1.5s infinite;
+/* Final Page */
+.final{
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,.15),
+        rgba(255,190,220,.25)
+    );
 }
 
-@keyframes pulse {
-    0%,100% {
-        transform: scale(1);
+.final h1{
+    font-size:38px;
+    color:#ff3f81;
+
+    animation:finalPop 1s ease;
+}
+
+.final .big-heart{
+    font-size:75px;
+    margin:20px;
+
+    animation:heartbeat 1.2s infinite;
+}
+
+.final p{
+    color:#563c68;
+
+    font-size:18px;
+    line-height:1.7;
+
+    max-width:330px;
+}
+
+.signature{
+    margin-top:25px;
+
+    font-size:19px;
+    font-weight:bold;
+
+    color:#ff3f81;
+}
+
+.signature span{
+    font-size:21px;
+}
+
+@keyframes heartbeat{
+    0%,100%{
+        transform:scale(1);
     }
-    50% {
-        transform: scale(1.06);
+
+    50%{
+        transform:scale(1.18);
+    }
+}
+
+@keyframes finalPop{
+    from{
+        transform:scale(.2);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* Confetti */
+.confetti{
+    position:fixed;
+
+    width:9px;
+    height:14px;
+
+    top:-20px;
+
+    animation:confettiFall 4s linear forwards;
+
+    z-index:100;
+}
+
+@keyframes confettiFall{
+    0%{
+        transform:translateY(0) rotate(0);
+    }
+
+    100%{
+        transform:translateY(110vh) rotate(720deg);
     }
 }
 
 /* Mobile */
-@media(max-width: 400px) {
-    .card {
-        min-height: 550px;
-        padding: 25px 18px;
+@media(max-height:700px){
+
+    .card{
+        height:90vh;
     }
 
-    .cake {
-        font-size: 80px;
+    .title h1{
+        font-size:32px;
     }
 
-    .final-name {
-        font-size: 45px;
+    .cat{
+        transform:scale(.85);
+        margin-top:55px;
+    }
+
+    .note p{
+        font-size:16px;
     }
 }
 </style>
@@ -298,370 +548,360 @@ button:active {
 <body>
 
 <!-- Floating Hearts -->
-<div class="hearts" id="hearts"></div>
 
-<!-- Main -->
-<div class="container">
+<div class="bg-heart h1">💗</div>
+<div class="bg-heart h2">💕</div>
+<div class="bg-heart h3">💖</div>
+<div class="bg-heart h4">💝</div>
+<div class="bg-heart h5">💗</div>
+
 
 <div class="card">
 
-    <!-- PAGE 1 -->
-    <section class="page active" id="page1">
+<!-- ================= FIRST PAGE ================= -->
 
-        <div class="small-title">
-            A LITTLE SURPRISE FOR YOU ✨
+<section class="page" id="page0">
+
+    <div class="title">
+
+        <h1>🎂 Happy Birthday Othoy🎂</h1>
+
+        <p>A little surprise for you 💕</p>
+
+    </div>
+
+
+    <!-- Cute Cat -->
+
+    <div class="cat">
+
+        <div class="ear left">
+            <div class="inner-ear"></div>
         </div>
-<img src="Screenshot_20260918-172724.jpg" 
-     alt="Birthday Photo"
-     style="width:80%; max-width:300px; border-radius:20px; margin:20px auto; display:block;">
-        <h1>🎂 HAPPY</h1>
-        <h1>BIRTHDAY, Noman! 💖</h1>
 
-        <div class="cake">🎂</div>
+        <div class="ear right">
+            <div class="inner-ear"></div>
+        </div>
 
-        <p class="message">
-            Today is a special day because someone
-            very special was born. 💕
+
+        <div class="head">
+
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+
+            <div class="nose"></div>
+
+            <div class="mouth"></div>
+
+            <div class="whisker w1"></div>
+            <div class="whisker w2"></div>
+            <div class="whisker w3"></div>
+            <div class="whisker w4"></div>
+
+        </div>
+
+
+        <!-- Rose Bucket -->
+
+        <div class="bucket">
+
+            <div class="rose r1">🌹</div>
+            <div class="rose r2">🌹</div>
+            <div class="rose r3">🌹</div>
+
+        </div>
+
+    </div>
+
+
+    <button class="btn" onclick="nextPage()">
+        💌 Open My Message
+    </button>
+
+</section>
+
+
+
+<!-- ================= SECOND PAGE ================= -->
+
+<section class="page hidden" id="page1">
+
+    <div class="note">
+
+        <div class="note-icon">😺🌹</div>
+
+        <h2>First of all...</h2>
+
+        <p>
+            Tor jonno ei chotto surprise ta banalam.
+            Karon tui amar kache ekjon khub precious . 🥹❤️
         </p>
 
-        <button onclick="nextPage()">
-            💌 Tap Here
+        <button class="btn" onclick="nextPage()">
+            Continue ➜
         </button>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- PAGE 2 -->
-    <section class="page" id="page2">
 
-        <div class="small-title">
-            💖 FOR YOU
-        </div>
+<!-- ================= THIRD PAGE ================= -->
 
-        <h2>Dear Noman ✨</h2>
+<section class="page hidden" id="page2">
 
-        <p class="message" id="typingText"></p>
+    <div class="note">
 
-        <button onclick="nextPage()">
-            ✨ Continue
-        </button>
+        <div class="note-icon">🤝💖</div>
 
-    </section>
+        <h2>Ekta kotha bolbo...</h2>
 
-
-    <!-- PAGE 3 -->
-    <section class="page" id="page3">
-
-        <div class="small-title">
-            MAKE A WISH! ✨
-        </div>
-
-        <div class="cake">🎂</div>
-
-        <h2>Close your eyes... 💫</h2>
-
-        <p class="message">
-            Make a beautiful wish and blow out
-            the candles. 🕯️✨
-            <br><br>
-            May your smile always stay this beautiful. 💗
+        <p>
+            Ami tor moto ekjon person vaggo kore
+            amar jibone peyechi—eta amar jonno
+            sotti anonder. 🥹❤️
         </p>
 
-        <button onclick="surprise()">
-            🎉 Birthday Surprise
+        <button class="btn" onclick="nextPage()">
+            Continue ➜
         </button>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- PAGE 4 -->
-    <section class="page" id="page4">
 
-        <div class="small-title">
-            🎉 IT'S YOUR SPECIAL DAY 🎉
-        </div>
+<!-- ================= FOURTH PAGE ================= -->
 
-        <div class="final-name">
-            Noman 💖
-        </div>
+<section class="page hidden" id="page3">
 
-        <div class="cake">
-            🎂
-        </div>
-<img src="Screenshot_20260918-172724.jpg" 
-     alt="Birthday Photo"
-     style="width:80%; max-width:300px; border-radius:20px; margin:20px auto; display:block;">
-        <p class="message">
-            Happy Birthday, Noman! 🥳💗
-            <br><br>
+    <div class="note">
 
-            May your life be filled with
-            happiness, love, beautiful memories
-            and endless reasons to smile. ✨
-            <br><br>
+        <div class="note-icon">🙏✨</div>
 
-            Stay happy. Stay amazing. 💕
+        <h2>My little prayer...</h2>
+
+        <p>
+            Doa kori tui jibone onek sofol ho,
+            tor sob shopno puron hok,
+            ar sobsomoy happy thakish. ❤️✨
         </p>
 
-        <button onclick="celebrate()">
-            🎊 Celebrate!
+        <button class="btn" onclick="nextPage()">
+            Continue ➜
         </button>
 
-    </section>
+    </div>
+
+</section>
+
+
+
+<!-- ================= FIFTH PAGE ================= -->
+
+<section class="page hidden" id="page4">
+
+    <div class="note">
+
+        <div class="note-icon">🌸💖</div>
+
+        <h2>One more thing...</h2>
+
+        <p>
+            Jotoi din chole jak,
+            amader ei beautiful bondhon
+            ar ei special memories gulo
+            sobsomoy mone thakbe. 🫶✨
+        </p>
+
+        <button class="btn" onclick="nextPage()">
+            One Last Thing ➜
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FINAL PAGE ================= -->
+
+<section class="page hidden final" id="page5">
+
+    <div class="big-heart">❤️</div>
+
+    <h1>Happy Birthday! 🎂</h1>
+
+    <p>
+
+        May your life be filled with
+        happiness, success, love,
+        beautiful memories and
+        countless reasons to smile. 🌸
+
+        <br><br>
+
+        Doa kori tor protita din
+        ajker diner motoi beautiful hok. ✨
+
+        <br><br>
+
+        Always stay happy,
+        keep smiling and
+        take care of yourself. 🫶
+
+    </p>
+
+
+    <div class="signature">
+
+        With lots of love & wishes 💖
+
+        <br>
+
+        <span>
+            Your Gadha Friend,<br>
+            Nayem 🙂
+        </span>
+
+    </div>
+
+</section>
 
 </div>
-</div>
+
 
 
 <script>
 
-/* -------------------------
-   PAGE SYSTEM
-------------------------- */
+/* ================= PAGE SYSTEM ================= */
 
-let currentPage = 1;
+let currentPage = 0;
 
-function showPage(number) {
+const pages = document.querySelectorAll(".page");
 
-    document.querySelectorAll(".page").forEach(page => {
-        page.classList.remove("active");
-    });
 
-    document.getElementById("page" + number)
-        .classList.add("active");
+function nextPage(){
 
-    currentPage = number;
+    /* Current page slides away */
 
-    if (number === 2) {
-        startTyping();
+    pages[currentPage].classList.remove("hidden");
+
+    pages[currentPage].classList.add("previous");
+
+
+    /* Move to next page */
+
+    currentPage++;
+
+
+    pages[currentPage].classList.remove("hidden");
+
+
+    /* Restart icon animation */
+
+    const icon =
+        pages[currentPage].querySelector(".note-icon");
+
+
+    if(icon){
+
+        icon.style.animation = "none";
+
+        setTimeout(() => {
+
+            icon.style.animation = "pop .8s ease";
+
+        },10);
+
+    }
+
+
+    /* Final surprise */
+
+    if(currentPage === pages.length - 1){
+
+        createConfetti();
+
+        setTimeout(createConfetti,800);
+
+        setTimeout(createConfetti,1600);
+
+        setTimeout(createConfetti,2400);
     }
 }
 
-function nextPage() {
-
-    if (currentPage < 4) {
-        showPage(currentPage + 1);
-    }
-}
 
 
-/* -------------------------
-   TYPING EFFECT
-------------------------- */
+/* ================= CONFETTI ================= */
 
-const text =
-"On your special day, I just want to wish you lots of happiness, beautiful moments and endless smiles. May every new day bring something wonderful into your life. Happy Birthday, OTHOY! 💖✨";
+function createConfetti(){
 
-let typingStarted = false;
+    const emojis = [
 
-function startTyping() {
+        "🎉",
+        "🎊",
+        "💖",
+        "💕",
+        "✨",
+        "🌸",
+        "⭐",
+        "💝",
+        "🌹"
 
-    if (typingStarted) return;
-
-    typingStarted = true;
-
-    const element =
-        document.getElementById("typingText");
-
-    let i = 0;
-
-    function type() {
-
-        if (i < text.length) {
-
-            element.innerHTML += text.charAt(i);
-
-            i++;
-
-            setTimeout(type, 35);
-        }
-    }
-
-    type();
-}
+    ];
 
 
-/* -------------------------
-   FLOATING HEARTS
-------------------------- */
-
-const heartContainer =
-    document.getElementById("hearts");
-
-const heartSymbols =
-    ["💗","💖","💕","💓","💞","❤️","✨"];
-
-function createHeart() {
-
-    const heart =
-        document.createElement("div");
-
-    heart.className = "heart";
-
-    heart.innerHTML =
-        heartSymbols[
-            Math.floor(
-                Math.random() * heartSymbols.length
-            )
-        ];
-
-    heart.style.left =
-        Math.random() * 100 + "%";
-
-    heart.style.fontSize =
-        (12 + Math.random() * 22) + "px";
-
-    heart.style.animationDuration =
-        (5 + Math.random() * 7) + "s";
-
-    heartContainer.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 12000);
-}
-
-setInterval(createHeart, 500);
-
-
-/* -------------------------
-   STARS
-------------------------- */
-
-function createStars() {
-
-    for (let i = 0; i < 45; i++) {
-
-        const star =
-            document.createElement("div");
-
-        star.className = "star";
-
-        star.innerHTML = "✦";
-
-        star.style.left =
-            Math.random() * 100 + "%";
-
-        star.style.top =
-            Math.random() * 100 + "%";
-
-        star.style.animationDelay =
-            Math.random() * 2 + "s";
-
-        document.body.appendChild(star);
-    }
-}
-
-createStars();
-
-
-/* -------------------------
-   CONFETTI
-------------------------- */
-
-function createConfetti() {
-
-    const emojis =
-        ["🎉","🎊","💖","💕","✨","🌸","⭐"];
-
-    for (let i = 0; i < 80; i++) {
+    for(let i=0;i<35;i++){
 
         const confetti =
             document.createElement("div");
 
+
+        confetti.className =
+            "confetti";
+
+
         confetti.innerHTML =
             emojis[
                 Math.floor(
-                    Math.random() * emojis.length
+                    Math.random()*emojis.length
                 )
             ];
 
-        confetti.style.position = "fixed";
 
         confetti.style.left =
-            Math.random() * 100 + "vw";
+            Math.random()*100 + "vw";
 
-        confetti.style.top =
-            "-30px";
 
         confetti.style.fontSize =
-            (15 + Math.random() * 20) + "px";
+            (12 + Math.random()*15) + "px";
 
-        confetti.style.zIndex = "9999";
 
-        confetti.style.transition =
-            "transform 3s linear, opacity 3s";
+        confetti.style.animationDuration =
+            (2 + Math.random()*3) + "s";
+
+
+        confetti.style.animationDelay =
+            Math.random()*1.5 + "s";
+
 
         document.body.appendChild(confetti);
 
-        setTimeout(() => {
-
-            confetti.style.transform =
-                `translateY(${110 + Math.random() * 30}vh)
-                 rotate(${Math.random() * 720}deg)`;
-
-            confetti.style.opacity = "0";
-
-        }, 50);
 
         setTimeout(() => {
+
             confetti.remove();
-        }, 3500);
-    }
-}
 
-
-/* -------------------------
-   SURPRISE
-------------------------- */
-
-function surprise() {
-
-    createConfetti();
-
-    setTimeout(() => {
-        showPage(4);
-    }, 700);
-}
-
-
-/* -------------------------
-   CELEBRATE
-------------------------- */
-
-function celebrate() {
-
-    createConfetti();
-
-    for (let i = 0; i < 3; i++) {
-
-        setTimeout(() => {
-            createConfetti();
-        }, i * 1000);
+        },6000);
 
     }
+
 }
-
-
-/* -------------------------
-   OPTIONAL MUSIC
--------------------------
-
-To add background music, put an MP3
-named "birthday.mp3" in the same folder.
-
-Then uncomment this:
-
-const music = new Audio("birthday.mp3");
-music.loop = true;
-
-document.addEventListener("click", () => {
-    music.play();
-}, { once: true });
-
-------------------------- */
 
 </script>
 
 </body>
-          </html>
+</html>
